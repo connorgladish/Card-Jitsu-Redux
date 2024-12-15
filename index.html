@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card-Jitsu Battle</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="battle-stage">
+        <img id="stage-background" src="assets/images/battle-background.jpg" alt="Battle Stage">
+      
+        <!-- Opponent's Card -->
+        <div id="opponent-area">
+            <div id="opponent-score" class="score-display"></div>
+            <img id="opponent-card" src="assets/images/enemypenguin.png" alt="Opponent card">
+            <p>Opponent</p>
+          </div>
+          
+          <div id="player-area">
+            <div id="player-score" class="score-display"></div>
+            <img id="player-card" src="assets/images/friendlypenguin.png" alt="Your card">
+            <p>You</p>
+          </div>
+          
+      
+        <!-- Toolbar -->
+        <div id="card-toolbar">
+          <div class="card-option" data-card="fire">
+            <img src="assets/images/fire.png" alt="Fire Card">
+            <p>Fire</p>
+          </div>
+          <div class="card-option" data-card="water">
+            <img src="assets/images/water.png" alt="Water Card">
+            <p>Water</p>
+          </div>
+          <div class="card-option" data-card="snow">
+            <img src="assets/images/snow.png" alt="Snow Card">
+            <p>Snow</p>
+          </div>
+        </div>
+      </div>
+      
+      <div id="end-game-modal">
+        <img id="end-game-image" src="" alt="End Game">
+      </div>
+      
+      
+
+  <script src="js/main.js"></script>
+</body>
+</html>

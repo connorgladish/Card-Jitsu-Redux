@@ -1,0 +1,134 @@
+/* General Body Styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+  }
+  
+  /* Battle Stage Layout */
+  #battle-stage {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between; /* Opponent on the left, player on the right */
+    align-items: center; /* Vertically centers the opponent and player cards */
+    overflow: hidden;
+  }
+  
+  /* Background Image */
+  #stage-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures full screen background without distortion */
+    z-index: -1;
+  }
+  
+  /* Player and Opponent Areas */
+  #player-area, #opponent-area {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: none; /* Ensures no background behind cards */
+  }
+  
+  #player-area {
+    margin-right: 20px; /* Adds spacing on the right side */
+  }
+  
+  #opponent-area {
+    margin-left: 20px; /* Adds spacing on the left side */
+  }
+  
+  /* Player and Opponent Cards */
+  #player-card, #opponent-card {
+    width: 250px;
+    height: 400px;
+    margin-bottom: 10px;
+    background-color: transparent !important; /* Force transparency */
+    box-shadow: none; /* Remove any shadows that could mimic tiles */
+    border: none; /* Ensure no border around images */
+  }
+  
+  /* Toolbar for Card Selection */
+  #card-toolbar {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around; /* Space cards evenly across the toolbar */
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    padding: 10px 0;
+    z-index: 2;
+  }
+  
+  /* Individual Card Options in Toolbar */
+  .card-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer; /* Pointer cursor for interaction */
+    color: white;
+  }
+  
+  .card-option img {
+    width: 80px;
+    height: auto;
+    margin-bottom: 5px;
+    transition: transform 0.3s ease; /* Adds smooth hover animation */
+  }
+  
+  .card-option:hover img {
+    transform: scale(1.2); /* Slight zoom effect on hover */
+  }
+  
+  .card-option p {
+    margin: 0;
+    font-size: 14px;
+  }
+  .score-display {
+    display: flex;
+    justify-content: space-around; /* Keep unique card types horizontal */
+    gap: 20px; /* Space between different card types */
+  }
+  
+  .score-column {
+    display: flex;
+    flex-direction: column; /* Stack duplicates vertically */
+    align-items: center; /* Center the icons vertically */
+    gap: 5px; /* Space between stacked icons */
+  }
+  
+  .score-icon {
+    width: 40px;
+    height: auto;
+  }
+  /* End Game Modal */
+#end-game-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+    z-index: 999; /* Above all other elements */
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #end-game-image {
+    width: 500px;
+    height: 500px;
+  }
+  
