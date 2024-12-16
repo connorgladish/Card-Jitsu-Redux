@@ -38,25 +38,33 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: none; /* Ensures no background behind cards */
   }
   
   #player-area {
-    margin-right: 20px; /* Adds spacing on the right side */
+    margin-right: 20px;
   }
   
   #opponent-area {
-    margin-left: 20px; /* Adds spacing on the left side */
+    margin-left: 20px;
   }
   
-  /* Player and Opponent Cards */
-  #player-card, #opponent-card {
-    width: 250px;
-    height: 400px;
-    margin-bottom: 10px;
-    background-color: transparent !important; /* Force transparency */
-    box-shadow: none; /* Remove any shadows that could mimic tiles */
-    border: none; /* Ensure no border around images */
+  /* Cards Next to Characters */
+  #player-selected-card,
+  #opponent-selected-card {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100px;
+    height: auto;
+    z-index: 2;
+  }
+  
+  #player-selected-card {
+    left: -120px;
+  }
+  
+  #opponent-selected-card {
+    right: -120px;
   }
   
   /* Toolbar for Card Selection */
@@ -65,9 +73,9 @@ body {
     bottom: 0;
     width: 100%;
     display: flex;
-    justify-content: space-around; /* Space cards evenly across the toolbar */
+    justify-content: space-around;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    background-color: rgba(0, 0, 0, 0.8);
     padding: 10px 0;
     z-index: 2;
   }
@@ -77,58 +85,61 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    cursor: pointer; /* Pointer cursor for interaction */
-    color: white;
+    cursor: pointer;
   }
   
   .card-option img {
     width: 80px;
     height: auto;
     margin-bottom: 5px;
-    transition: transform 0.3s ease; /* Adds smooth hover animation */
+    transition: transform 0.3s ease;
   }
   
   .card-option:hover img {
-    transform: scale(1.2); /* Slight zoom effect on hover */
+    transform: scale(1.2);
   }
   
   .card-option p {
     margin: 0;
     font-size: 14px;
+    color: white;
   }
+  
+  /* Score Display */
   .score-display {
     display: flex;
-    justify-content: space-around; /* Keep unique card types horizontal */
-    gap: 20px; /* Space between different card types */
+    justify-content: space-around;
+    gap: 20px;
   }
   
   .score-column {
     display: flex;
-    flex-direction: column; /* Stack duplicates vertically */
-    align-items: center; /* Center the icons vertically */
-    gap: 5px; /* Space between stacked icons */
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
   }
   
   .score-icon {
     width: 40px;
     height: auto;
   }
+  
   /* End Game Modal */
-#end-game-modal {
-    display: none; /* Hidden by default */
+  #end-game-modal {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
-    z-index: 999; /* Above all other elements */
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 999;
     justify-content: center;
     align-items: center;
   }
   
   #end-game-image {
     width: 500px;
-    height: 500px;
+    height: auto;
   }
   
