@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
     backgroundMusic.pause();
     backgroundMusic.currentTime = 0;
   });
-  
+
   // Add click event for the mute button
   muteButton.addEventListener("click", () => {
     isMuted = !isMuted; // Toggle mute state
@@ -40,10 +40,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Update the button image
     if (isMuted) {
-      muteButton.src = "../assets/audio/mute.png"; // Muted icon
+      muteButton.src = "/assets/audio/mute.png"; // Muted icon
       muteButton.alt = "Unmute Button";
     } else {
-      muteButton.src = "../assets/audio/unmute.png"; // Sound on icon
+      muteButton.src = "/assets/audio/unmute.png"; // Sound on icon
       muteButton.alt = "Mute Button";
     }
   });
