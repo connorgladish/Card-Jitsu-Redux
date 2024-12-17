@@ -1,4 +1,4 @@
-# Card-Jitsu
+# Card-Jitsu Redux
 
 ## Changelog
 ```
