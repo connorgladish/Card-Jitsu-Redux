@@ -3,6 +3,10 @@
 ## Changelog
 ```
 12/16/24
+[v0.5.5] Changed Name
+```
+```
+12/16/24
 [v0.5.2] Added Favicon
 ```
 ```
