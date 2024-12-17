@@ -40,15 +40,15 @@ body {
 }
 
 #player-card, #opponent-card {
-  width: 150px; /* Adjust image size */
+  width: 500px; /* Adjust image size */
   height: auto;
 }
 
 /* Selected Cards */
 #player-selected-card img,
 #opponent-selected-card img {
-  width: 80px; /* Force consistent width */
-  height: 120px; /* Force consistent height */
+  width: 150px; /* Force consistent width */
+  height: 150px; /* Force consistent height */
   object-fit: contain; /* Maintain aspect ratio and fit within box */
 }
 
@@ -58,7 +58,7 @@ body {
   top: 50%; /* Center vertically with player */
   left: -100px; /* Move to the left of the player */
   transform: translateY(-50%);
-  width: 80px; /* Consistent size */
+  width: 120px; /* Consistent size */
   height: 120px;
   z-index: 2; /* Ensure it appears above the background */
 }
@@ -68,7 +68,7 @@ body {
   top: 50%; /* Center vertically with CPU */
   right: -100px; /* Move to the right of the opponent */
   transform: translateY(-50%);
-  width: 80px; /* Consistent size */
+  width: 120px; /* Consistent size */
   height: 120px;
   z-index: 2; /* Ensure it appears above the background */
 }
@@ -91,16 +91,15 @@ body {
 }
 
 /* Toolbar Cards for Selection */
-/* Toolbar Cards */
 .card-option img {
-  width: 70px; /* Consistent width for toolbar cards */
-  height: 100px; /* Consistent height for toolbar cards */
+  width: 150px; /* Consistent width for toolbar cards */
+  height: 150px; /* Consistent height for toolbar cards */
   object-fit: contain; /* Maintain aspect ratio and avoid stretching */
   transition: transform 0.2s ease-in-out;
 }
 
 .card-option:hover img {
-  transform: scale(1.1); /* Slight zoom effect */
+  transform: scale(1.2); /* Slight zoom effect */
 }
 
 #end-game-modal {
@@ -182,8 +181,11 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #222;
-  color: #fff;
+  background-color: #9a929200; /* Fallback color */
+  background-image: url("../assets/images/mainmenu.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -194,7 +196,7 @@ body {
 
 #main-menu h1 {
   font-size: 48px;
-  margin-bottom: 20px;
+  color: #fff;
 }
 
 #main-menu button {
@@ -211,4 +213,45 @@ body {
 
 #main-menu button:hover {
   background-color: #e67e22;
+}
+
+#mute-button {
+  position: fixed; /* Fixed position at top-right corner */
+  top: 20px; /* Distance from the top */
+  right: 20px; /* Distance from the right */
+  width: 50px; /* Size of the button */
+  height: 50px;
+  cursor: pointer; /* Make it clickable */
+  z-index: 1001; /* Ensure it's above other elements */
+  opacity: 0.8; /* Slight transparency */
+  transition: opacity 0.3s ease; /* Smooth hover effect */
+}
+
+#mute-button:hover {
+  opacity: 1; /* Full opacity on hover */
+}
+
+#main-menu #challenge-sensei-button {
+  background-color: #b51d0d; /* Dark red */
+  color: white;
+}
+
+#main-menu #challenge-sensei-button:hover {
+  background-color: #e74c3c; /* Lighter red on hover */
+}
+
+#main-menu-button {
+  position: fixed; /* Fixed position on the screen */
+  top: 20px;       /* Distance from the top */
+  left: 20px;      /* Distance from the left */
+  width: 50px;     /* Size of the button */
+  height: 50px;
+  cursor: pointer; /* Indicate interactivity */
+  z-index: 1001;   /* Ensure it appears on top */
+  opacity: 0.8;    /* Slight transparency */
+  transition: opacity 0.3s ease; /* Smooth hover effect */
+}
+
+#main-menu-button:hover {
+  opacity: 1; /* Full opacity on hover */
 }

@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const backgroundMusic = document.getElementById("background-music");
+  const muteButton = document.getElementById("mute-button");
+
   const playerCard = document.getElementById("player-card");
   const opponentCard = document.getElementById("opponent-card");
   const playerScoreDisplay = document.getElementById("player-score");
@@ -8,12 +11,49 @@ document.addEventListener("DOMContentLoaded", () => {
   const taskbar = document.getElementById("card-toolbar");
   const endGameModal = document.getElementById("end-game-modal");
   const endGameImage = document.getElementById("end-game-image");
+  const mainMenuButton = document.getElementById("main-menu-button");
 
   const mainMenu = document.getElementById("main-menu");
   const startGameButton = document.getElementById("start-game-button");
   const instructionsButton = document.getElementById("instructions-button");
   const battleStage = document.getElementById("battle-stage");
   const resetGameButton = document.getElementById("reset-game-button");
+
+  let isMuted = false;
+
+  mainMenuButton.addEventListener("click", () => {
+    // Hide the battle stage
+    document.getElementById("battle-stage").style.display = "none";
+  
+    // Show the main menu
+    document.getElementById("main-menu").style.display = "flex";
+  
+    // Optional: Stop background music if playing
+    backgroundMusic.pause();
+    backgroundMusic.currentTime = 0;
+  });
+  
+  // Add click event for the mute button
+  muteButton.addEventListener("click", () => {
+    isMuted = !isMuted; // Toggle mute state
+    backgroundMusic.muted = isMuted;
+
+    // Update the button image
+    if (isMuted) {
+      muteButton.src = "../assets/audio/mute.png"; // Muted icon
+      muteButton.alt = "Unmute Button";
+    } else {
+      muteButton.src = "../assets/audio/unmute.png"; // Sound on icon
+      muteButton.alt = "Mute Button";
+    }
+  });
+
+  // Autoplay music (with a fallback for browser restrictions)
+  backgroundMusic.volume = 0.5; // Optional volume setting
+  backgroundMusic.play().catch((error) => {
+    console.warn("Autoplay failed, user interaction required:", error);
+  });
+
 
   const elements = ["fire", "water", "snow"];
   let cardDeck = createDeck();
@@ -23,6 +63,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const playerScore = { fire: [], water: [], snow: [] };
   const opponentScore = { fire: [], water: [], snow: [] };
+
+   // Ensure autoplay starts when the page loads
+   backgroundMusic.volume = 0.5; // Set volume (optional)
+   backgroundMusic.play().catch((error) => {
+     console.warn("Background music autoplay blocked:", error);
+   });
+
+
+   startGameButton.addEventListener("click", () => {
+    mainMenu.style.display = "none";
+    battleStage.style.display = "flex";
+    backgroundMusic.play(); // Play music when game starts
+    startRound();
+  });
+
+  
 
   // Main Menu Logic
   startGameButton.addEventListener("click", () => {

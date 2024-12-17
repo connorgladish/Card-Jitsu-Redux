@@ -2,20 +2,35 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Card-Jitsu Battle</title>
+  <title>Card-Jitsu</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <audio id="background-music" loop>
+    <source src="assets/audio/theme.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+  
+<!-- Mute/Unmute Button -->
+<img id="mute-button" src="assets/audio/unmute.png" alt="Mute Button">
+
  <!-- Main Menu -->
 <div id="main-menu">
-  <h1>Card-Jitsu Battle</h1>
+  <h1></h1>
   <button id="start-game-button">Start Game</button>
   <button id="instructions-button">Instructions</button>
+  <button id="challenge-sensei-button">Challenge Sensei</button> <!-- New Button -->
+
 </div>
 
 <!-- Battle Stage (hidden by default) -->
 <div id="battle-stage" style="display: none;">
+
+  <img id="main-menu-button" src="assets/images/return.png" alt="Main Menu">
+
   <img id="stage-background" src="assets/images/battle-background.jpg" alt="Battle Stage">
   
   <!-- Opponent's Area -->
