@@ -1,145 +1,214 @@
 /* General Body Styling */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-  }
-  
-  /* Battle Stage Layout */
-  #battle-stage {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: space-between; /* Opponent on the left, player on the right */
-    align-items: center; /* Vertically centers the opponent and player cards */
-    overflow: hidden;
-  }
-  
-  /* Background Image */
-  #stage-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures full screen background without distortion */
-    z-index: -1;
-  }
-  
-  /* Player and Opponent Areas */
-  #player-area, #opponent-area {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  #player-area {
-    margin-right: 20px;
-  }
-  
-  #opponent-area {
-    margin-left: 20px;
-  }
-  
-  /* Cards Next to Characters */
-  #player-selected-card,
-  #opponent-selected-card {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 100px;
-    height: auto;
-    z-index: 2;
-  }
-  
-  #player-selected-card {
-    left: -120px;
-  }
-  
-  #opponent-selected-card {
-    right: -120px;
-  }
-  
-  /* Toolbar for Card Selection */
-  #card-toolbar {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 10px 0;
-    z-index: 2;
-  }
-  
-  /* Individual Card Options in Toolbar */
-  .card-option {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-  }
-  
-  .card-option img {
-    width: 80px;
-    height: auto;
-    margin-bottom: 5px;
-    transition: transform 0.3s ease;
-  }
-  
-  .card-option:hover img {
-    transform: scale(1.2);
-  }
-  
-  .card-option p {
-    margin: 0;
-    font-size: 14px;
-    color: white;
-  }
-  
-  /* Score Display */
-  .score-display {
-    display: flex;
-    justify-content: space-around;
-    gap: 20px;
-  }
-  
-  .score-column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-  }
-  
-  .score-icon {
-    width: 40px;
-    height: auto;
-  }
-  
-  /* End Game Modal */
-  #end-game-modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 999;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  #end-game-image {
-    width: 500px;
-    height: auto;
-  }
-  
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  overflow: hidden; /* Prevent content overflow */
+}
+
+/* Battle Stage Layout */
+#battle-stage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between; /* Opponent on the left, player on the right */
+  align-items: center;
+}
+
+#stage-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Player and Opponent Areas */
+#player-area, #opponent-area {
+  position: relative;
+  width: 20%; /* Reduce width for proper scaling */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#player-card, #opponent-card {
+  width: 150px; /* Adjust image size */
+  height: auto;
+}
+
+/* Selected Cards */
+#player-selected-card img,
+#opponent-selected-card img {
+  width: 80px; /* Force consistent width */
+  height: 120px; /* Force consistent height */
+  object-fit: contain; /* Maintain aspect ratio and fit within box */
+}
+
+
+#player-selected-card {
+  position: absolute;
+  top: 50%; /* Center vertically with player */
+  left: -100px; /* Move to the left of the player */
+  transform: translateY(-50%);
+  width: 80px; /* Consistent size */
+  height: 120px;
+  z-index: 2; /* Ensure it appears above the background */
+}
+
+#opponent-selected-card {
+  position: absolute;
+  top: 50%; /* Center vertically with CPU */
+  right: -100px; /* Move to the right of the opponent */
+  transform: translateY(-50%);
+  width: 80px; /* Consistent size */
+  height: 120px;
+  z-index: 2; /* Ensure it appears above the background */
+}
+
+/* Toolbar for Card Selection */
+#card-toolbar {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px 0;
+}
+
+.card-option {
+  cursor: pointer;
+  text-align: center;
+}
+
+/* Toolbar Cards for Selection */
+/* Toolbar Cards */
+.card-option img {
+  width: 70px; /* Consistent width for toolbar cards */
+  height: 100px; /* Consistent height for toolbar cards */
+  object-fit: contain; /* Maintain aspect ratio and avoid stretching */
+  transition: transform 0.2s ease-in-out;
+}
+
+.card-option:hover img {
+  transform: scale(1.1); /* Slight zoom effect */
+}
+
+#end-game-modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Ensure it's above all other elements */
+}
+
+#end-game-modal.hidden {
+  display: none; /* Completely remove modal when hidden */
+  pointer-events: none; /* Prevent blocking interactions */
+  visibility: hidden; /* Ensure no ghost elements */
+}
+
+#end-game-modal img {
+  display: block; /* Ensures the image is visible */
+  width: 400px; /* Fixed width */
+  height: auto; /* Maintain aspect ratio */
+  opacity: 1; /* Ensure visibility */
+  object-fit: contain; /* Ensure image fits properly */
+  z-index: 10000; /* Ensure it renders above everything */
+}
+
+
+#end-game-image {
+  width: 400px;
+  display: none; /* Ensure it's hidden by default */
+  height: auto;
+}
+/* Score Display Above Characters */
+.score-display {
+  display: flex;
+  justify-content: center; /* Center align the score icons */
+  gap: 10px; /* Space between different element types */
+}
+
+.score-column {
+  display: flex;
+  flex-direction: column; /* Stack duplicates vertically */
+  align-items: center; /* Center each column */
+  gap: 5px; /* Space between stacked icons */
+}
+
+.score-icon {
+  width: 50px; /* Reduce size of icons */
+  height: auto;
+}
+
+#reset-game-button {
+  position: absolute; /* Position the button independently */
+  bottom: 50px; /* Distance from the bottom of the screen */
+  left: 50%; /* Move to the center horizontally */
+  transform: translateX(-50%); /* Center align using transform */
+  padding: 10px 20px;
+  background-color: #f39c12;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  z-index: 1001; /* Ensure it appears above the modal */
+}
+
+#reset-game-button:hover {
+  background-color: #0c50d7;
+}
+
+#main-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #222;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 1000;
+}
+
+#main-menu h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+#main-menu button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 20px;
+  color: white;
+  background-color: #f39c12;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#main-menu button:hover {
+  background-color: #e67e22;
+}

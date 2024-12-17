@@ -7,33 +7,42 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div id="battle-stage">
-    <img id="stage-background" src="assets/images/battle-background.jpg" alt="Battle Stage">
+ <!-- Main Menu -->
+<div id="main-menu">
+  <h1>Card-Jitsu Battle</h1>
+  <button id="start-game-button">Start Game</button>
+  <button id="instructions-button">Instructions</button>
+</div>
 
-    <!-- Opponent's Area -->
-    <div id="opponent-area">
-      <div id="opponent-score" class="score-display"></div>
-      <div id="opponent-selected-card"></div>
-      <img id="opponent-card" src="assets/images/enemypenguin.png" alt="Opponent">
-      <p>Opponent</p>
-    </div>
-
-    <!-- Player's Area -->
-    <div id="player-area">
-      <div id="player-score" class="score-display"></div>
-      <div id="player-selected-card"></div>
-      <img id="player-card" src="assets/images/friendlypenguin.png" alt="Player">
-      <p>You</p>
-    </div>
-
-    <!-- Toolbar for Player's Hand -->
-    <div id="card-toolbar"></div>
+<!-- Battle Stage (hidden by default) -->
+<div id="battle-stage" style="display: none;">
+  <img id="stage-background" src="assets/images/battle-background.jpg" alt="Battle Stage">
+  
+  <!-- Opponent's Area -->
+  <div id="opponent-area">
+    <div id="opponent-score" class="score-display"></div>
+    <img id="opponent-card" src="assets/images/enemypenguin.png" alt="Opponent Card">
+    <div id="opponent-selected-card"></div>
   </div>
 
-  <div id="end-game-modal">
-    <img id="end-game-image" src="" alt="End Game">
+  <!-- Player's Area -->
+  <div id="player-area">
+    <div id="player-score" class="score-display"></div>
+    <img id="player-card" src="assets/images/friendlypenguin.png" alt="Player Card">
+    <div id="player-selected-card"></div>
   </div>
 
+  <!-- Card Toolbar -->
+  <div id="card-toolbar"></div>
+</div>
+
+<!-- End Game Modal -->
+<div id="end-game-modal" class="hidden">
+  <img id="end-game-image" src="" alt="End Game">
+  <button id="reset-game-button">Play Again</button>
+</div>
+
+  
   <script src="js/main.js"></script>
 </body>
 </html>
